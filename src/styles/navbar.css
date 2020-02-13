@@ -1,0 +1,19 @@
+.topBar {
+	color: honeydew;
+background-color: gray;
+padding-bottom: 20px;
+
+}
+.nav {
+	color: honeydew;
+	display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-evenly;
+}
+.nav:hover {
+	color: honeydew;
+}
+.nav:visited {
+	color: white;
+}
