@@ -27,19 +27,18 @@ sent: false
 			email: this.state.email
 		}
 
-		Axios.post('API_URI', data)
+		Axios.post('https://contact-form-api-gac1edrhs.now.sh/api/v1', data)
 		.then( res => {
 			this.setState({ sent:true }, this.resetForm() )
 		})
-		.catch(() => {
+		.catch((error) => {
 			this.setState({
 				message: "",
-name: "",
-email: "",
+				name: "",
+				email: "",
 				buttonText: "Send message",
 			})
-			alert('Your message has not been sent. Please try again')
-		})
+console.log(error)		})
 	}
 
 	resetForm = () => {
