@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import '../styles/contactform.css';
 import Axios from 'axios';
 
@@ -27,18 +27,21 @@ sent: false
 			email: this.state.email
 		}
 
-		Axios.post('https://contact-form-api-gac1edrhs.now.sh/api/v1', data)
+		Axios.post('http://localhost:3333/send', data)
 		.then( res => {
 			this.setState({ sent:true }, this.resetForm() )
 		})
 		.catch((error) => {
+			console.log("this is the error", error)		
+
 			this.setState({
 				message: "",
 				name: "",
 				email: "",
 				buttonText: "Send message",
 			})
-console.log(error)		})
+
+})
 	}
 
 	resetForm = () => {
