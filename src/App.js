@@ -1,16 +1,17 @@
 import React from 'react';
+// import { Switch, Route } from 'react-router';
 import './App.css';
-import ContactForm from './components/ContactForm'
-import Navbar from './components/Navbar.js'
+// import ContactForm from './components/ContactForm'
+import Home from './components/Home'
+// import Projects from './components/Projects'
+
 
 
 
 function App() {
 	return (
 		<div className="App">
-			<Navbar />
-
-			<ContactForm />
+			<Home />
 
 		</div>
 	);

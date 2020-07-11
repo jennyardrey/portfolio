@@ -43,6 +43,7 @@ button.burger {
 	font-size: 17px;
 	cursor: pointer;
 	transition: 70ms;
+	display: none;
 } 
 /*
 .burger {

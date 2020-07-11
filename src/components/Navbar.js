@@ -3,6 +3,7 @@ import logo from '../images/glasses.jpg';
 import '../styles/Navbar.css';
 import { CSSTransition } from "react-transition-group";
 import { Link } from "react-router-dom";
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const Navbar = () => {
 	const [isNavVisible, setNavVisibility] = useState(false);
@@ -41,10 +42,10 @@ const Navbar = () => {
 					unmountOnExit
 				>
 					<nav className="navlinks">
-						<Link to="/" className="navbtn">Home</Link>
-						<Link to="/projects" className="navbtn">Projects
-						</Link>
-						<Link to="/contact" className="navbtn">Contact Me</Link>
+						<AnchorLink offset='100' href='#intro' className="navbtn">Home</AnchorLink>
+						<AnchorLink offset='100' href='#projects' className="navbtn">Projects
+						</AnchorLink>
+						<AnchorLink offset='100' href='#contact' className="navbtn">Contact Me</AnchorLink>
 					</nav>
 				</CSSTransition>
 				<button onClick={toggleNav} className="burger navbtn">
