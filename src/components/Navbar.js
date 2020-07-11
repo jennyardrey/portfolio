@@ -1,30 +1,58 @@
-import React from 'react';
-import '../styles/navbar.css';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import logo from '../images/glasses.jpg';
+import '../styles/Navbar.css';
+import { CSSTransition } from "react-transition-group";
+import { Link } from "react-router-dom";
 
+const Navbar = () => {
+	const [isNavVisible, setNavVisibility] = useState(false);
+	const [isSmallScreen, setIsSmallScreen] = useState(false);
 
-const Navbar = () => (
+	useEffect(() => {
+		const mediaQuery = window.matchMedia("(max-width: 700px)");
+		mediaQuery.addListener(handleMediaQueryChange);
+		handleMediaQueryChange(mediaQuery);
 
-	<div className="topBar">
-	<ul>
-		<div class="imgLogo"><img
-			className="logo"
-			src="https://logosolusa.com/wp-content/uploads/parser/Random-Logo-1.png"
-			alt="logo"
-			height="200"
-			width="200"
-		/>
-		<h1>Jenny Ardrey</h1>
+		return () => {
+			mediaQuery.removeListener(handleMediaQueryChange);
+		};
+	}, []);
+
+	const handleMediaQueryChange = mediaQuery => {
+		if (mediaQuery.matches) {
+			setIsSmallScreen(true);
+		} else {
+			setIsSmallScreen(false);
+		}
+	};
+
+	const toggleNav = () => {
+		setNavVisibility(!isNavVisible);
+	};
+
+	return (
+		<div>
+			<div className="navbar" >
+				<img className="logo-head" src={logo} alt="posh-pods-logo"></img>
+				<CSSTransition
+					in={!isSmallScreen || isNavVisible}
+					timeout={350}
+					classNames="NavAnimation"
+					unmountOnExit
+				>
+					<nav className="navlinks">
+						<Link to="/" className="navbtn">Home</Link>
+						<Link to="/projects" className="navbtn">Projects
+						</Link>
+						<Link to="/contact" className="navbtn">Contact Me</Link>
+					</nav>
+				</CSSTransition>
+				<button onClick={toggleNav} className="burger navbtn">
+					<i class="fas fa-bars"></i>
+				</button>
+			</div >
 		</div>
-		<div className="nav">
-		<Link className="item" to="/"> Home </Link>
-		<Link className="item" to="/projects">Projects </Link>
-		<Link className="item" to="/contact">Contact </Link>
-		</div>
-			</ul>
-</div>
-  
-);
-
+	);
+}
 
 export default Navbar;

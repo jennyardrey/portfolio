@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
 import '../styles/contactform.css';
 import Axios from 'axios';
+import Navbar from '../components/Navbar'
 
 
 class ContactForm extends Component {
 	constructor(props) {
 		super(props);
-		this.state ={
-message: "",
-name: "",
-email: "",
-buttonText: "Send message",
-sent: false
+		this.state = {
+			message: "",
+			name: "",
+			email: "",
+			buttonText: "Send message",
+			sent: false
 		}
 	}
 
 	formSubmit = e => {
 		e.preventDefault()
-		this.setState ({
+		this.setState({
 			buttonText: "Sending..."
 		})
 		let data = {
@@ -26,52 +26,55 @@ sent: false
 			message: this.state.message,
 			email: this.state.email
 		}
-
-		Axios.post('http://localhost:3333/send', data)
-		.then( res => {
-			this.setState({ sent:true }, this.resetForm() )
-		})
-		.catch((error) => {
-			console.log("this is the error", error)		
-
-			this.setState({
-				message: "",
-				name: "",
-				email: "",
-				buttonText: "Send message",
+		Axios.post('https://jennyardreycontactapi.herokuapp.com/send', data)
+			.then(res => {
+				console.log("its working")
+				this.setState({ sent: true }, this.resetForm())
 			})
+			.catch((error) => {
+				console.log("this is the error", error)
 
-})
+				this.setState({
+					message: "",
+					name: "",
+					email: "",
+					buttonText: "Send message",
+				})
+			})
 	}
 
 	resetForm = () => {
 		this.setState({
 			message: "",
-name: "",
-email: "",
-buttonText: "Message sent!",
+			name: "",
+			email: "",
+			buttonText: "Message sent!",
 		})
 	}
+
 	render() {
-return <form className="contact-form" onSubmit={e => this.formSubmit(e)}>
-		
-		<label className="message" >Type your message Here:</label>
-		<input onChange={e => this.setState({ message: e.target.value })} name="message" className="message-input" type="text" placeholder="Type your message here" value={this.state.message} required></input>
-		
-		<label className="name" >Your name</label>
-<input onChange={e => this.setState({ name: e.target.value })} name="name" className="message-name" type="text" placeholder="Your name" value={this.state.name} required></input>
+		return (
+			<div>
+				<Navbar />
+				<form className="contact-form" onSubmit={e => this.formSubmit(e)}>
 
-<label className="email" >Your email</label>
-<input onChange={e => this.setState({ email: e.target.value })} name="email" className="message-email" type="text" placeholder="Your email" value={this.state.email} required></input>
+					<label className="message" >Type your message Here:</label>
+					<input onChange={e => this.setState({ message: e.target.value })} name="message" className="message-input" type="text" placeholder="Type your message here" value={this.state.message} required></input>
 
-<div className="button-container">
-	<button type="submit" className="button" >{this.state.buttonText}</button>
-</div>
+					<label className="name" >Your name</label>
+					<input onChange={e => this.setState({ name: e.target.value })} name="name" className="message-name" type="text" placeholder="Your name" value={this.state.name} required></input>
 
-	</form>
+					<label className="email" >Your email</label>
+					<input onChange={e => this.setState({ email: e.target.value })} name="email" className="message-email" type="text" placeholder="Your email" value={this.state.email} required></input>
+
+					<div className="button-container">
+						<button type="submit" className="button" >{this.state.buttonText}</button>
+					</div>
+				</form>
+			</div>
+		)
 	};
 };
-
 
 
 export default ContactForm;
