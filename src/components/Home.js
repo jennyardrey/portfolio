@@ -4,6 +4,7 @@ import Projects from './Projects'
 import ContactForm from './ContactForm'
 import Intro from './Intro'
 import '../styles/home.css'
+import images from "./Images"
 
 
 
@@ -12,7 +13,7 @@ const Home = () => {
 		<div className="home">
 			<Navbar />
 			<section id="intro"><Intro /></section>
-			<section id="projects"><Projects /></section>
+			<section id="projects"><Projects slides={images} /></section>
 			<section id="contact">	<ContactForm /></section>
 
 
