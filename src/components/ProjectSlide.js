@@ -7,8 +7,11 @@ const ProjectSlide = ({ content }) => (
 		css={css`
       height: 100%;
       width: 100%;
-	 background-color: rgba(255, 255, 255, 0.2);
-	 padding: 30px;
+	 		background-color: rgba(255, 255, 255, 0.2);
+	 		padding: 30px;
+	 		display: flex;
+			flex-direction: column;
+			align-items: center;
 	 
 	 
     `}
@@ -16,7 +19,7 @@ const ProjectSlide = ({ content }) => (
 		<h1>{content.title}</h1>
 		<img
 			css={css`
-			max-width: 50%;
+			max-width: 75%;
 			max-height: 50%;
 			`}
 			src={content.img} alt="project" />
