@@ -3,7 +3,7 @@ import Navbar from './Navbar'
 import Projects from './Projects'
 import ContactForm from './ContactForm'
 import Intro from './Intro'
-import '../styles/home.css'
+import './styles/home.css'
 import images from "./Images"
 
 

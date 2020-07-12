@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/contactform.css';
 import Axios from 'axios';
-import Navbar from '../components/Navbar'
 
 
 class ContactForm extends Component {
@@ -55,7 +54,7 @@ class ContactForm extends Component {
 	render() {
 		return (
 			<div>
-				<Navbar />
+				{/* <Navbar /> */}
 				<form className="contact-form" onSubmit={e => this.formSubmit(e)}>
 
 					<label className="message" >Type your message Here:</label>

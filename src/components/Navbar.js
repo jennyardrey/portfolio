@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from '../images/glasses.jpg';
-import '../styles/Navbar.css';
+import './styles/Navbar.css';
 import { CSSTransition } from "react-transition-group";
-import { Link } from "react-router-dom";
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const Navbar = () => {
