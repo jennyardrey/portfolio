@@ -77,6 +77,9 @@ height: 60vh;
 width: 80vw;
 margin: 0 auto;
 overflow: hidden;
+-webkit-box-shadow: 3px 22px 62px 0px rgba(0,0,0,0.5);
+-moz-box-shadow: 3px 22px 62px 0px rgba(0,0,0,0.5);
+box-shadow: 3px 22px 62px 0px rgba(0,0,0,0.5);
 `
 
 export default Projects

@@ -43,7 +43,7 @@ const Navbar = () => {
 				>
 					<nav className="navlinks">
 						<AnchorLink offset='100' href='#intro' className="navbtn">Home</AnchorLink>
-						<AnchorLink offset='100' href='#projects' className="navbtn">Projects
+						<AnchorLink offset='200' href='#projects' className="navbtn">Projects
 						</AnchorLink>
 						<AnchorLink offset='100' href='#contact' className="navbtn">Contact Me</AnchorLink>
 					</nav>
